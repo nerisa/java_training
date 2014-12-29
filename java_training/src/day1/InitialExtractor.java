@@ -9,7 +9,7 @@ import java.util.Scanner;
  * @author nerisa
  *
  */
-public class ComputeInitial {
+public class InitialExtractor {
 
 	/**
 	 * @param args
