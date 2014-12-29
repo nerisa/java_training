@@ -18,7 +18,7 @@ public class InitialExtractor {
 		Scanner userInput=new Scanner(System.in);
 		String name=new String();
 		//String initial=new String();
-		int indexOfSpace;
+		int indexOfSpace=0;
 		System.out.println("Enter your full name");
 		name=userInput.nextLine().trim();
 		indexOfSpace=name.indexOf(' ');
