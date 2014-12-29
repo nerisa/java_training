@@ -16,6 +16,7 @@ public class FullNameConcat {
 		String firstName=new String();
 		String middleName=new String();
 		String lastName=new String();
+		String nameSeparater=" ";
 		StringBuilder fullName=new StringBuilder();
 		Scanner inputValue=new Scanner(System.in);
 		do{
@@ -23,18 +24,18 @@ public class FullNameConcat {
 			salutation=inputValue.nextLine().trim();
 			fullName.append(salutation);
 		}while(salutation.isEmpty());
-		fullName.append(' ');
+		fullName.append(nameSeparater);
 		do{
 			System.out.println("Enter your first name");
 			firstName=inputValue.nextLine().trim();
 			fullName.append(firstName);
 		}while(firstName.isEmpty());
-		fullName.append(' ');
+		fullName.append(nameSeparater);
 		System.out.println("Enter your middle name");
 		middleName=inputValue.nextLine().trim();
 		if(!middleName.isEmpty()){
 			fullName.append(middleName);
-			fullName.append(' ');
+			fullName.append(nameSeparater);
 		}
 		do{
 			System.out.println("Enter your last name");
