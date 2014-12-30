@@ -40,7 +40,7 @@ public class PalindromeChecker {
 		 */
 		boolean is5digit = false;
 		boolean notInteger = false;
-		String initialNumber;
+		String initialNumber = "";
 		String reverseNumber = "";
 		Scanner userInput = new Scanner(System.in);
 		try {
@@ -62,7 +62,6 @@ public class PalindromeChecker {
 			userInput.close();
 		}
 		initialNumber = Integer.toString(Math.abs(number));
-		// System.out.println(initialNumber);
 		for (int i = initialNumber.length() - 1; i >= 0; i--) {
 			reverseNumber = reverseNumber + initialNumber.charAt(i);
 		}
