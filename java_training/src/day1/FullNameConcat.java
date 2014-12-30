@@ -16,6 +16,7 @@ public class FullNameConcat {
 		String firstName;
 		String middleName;
 		String lastName;
+		String choice="y";
 		String nameSeparater=" ";
 		StringBuilder fullName=new StringBuilder();
 		Scanner inputValue=new Scanner(System.in);
@@ -31,11 +32,22 @@ public class FullNameConcat {
 		do{
 			System.out.println("Enter your first name");
 			firstName=inputValue.nextLine().trim();
-			fullName.append(firstName);
+			if (firstName.isEmpty()){
+				System.out.println("First name is a required field");
+			}
+			
 		}while(firstName.isEmpty());
+		fullName.append(firstName);
 		fullName.append(nameSeparater);
-		System.out.println("Enter your middle name");
-		middleName=inputValue.nextLine().trim();
+		do{
+			System.out.println("Enter your middle name");
+			middleName=inputValue.nextLine().trim();
+			if (middleName.isEmpty()){
+				System.out.println("Leave it empty?(y/n)");
+				choice=inputValue.nextLine();
+			}
+		
+		}while (choice.equalsIgnoreCase("n") && middleName.isEmpty());
 		if(!middleName.isEmpty()){
 			fullName.append(middleName);
 			fullName.append(nameSeparater);
