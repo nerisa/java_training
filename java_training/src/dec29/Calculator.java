@@ -17,10 +17,11 @@ public class Calculator {
 	 * @param secondNumber operand of the operations
 	 */
 	static Scanner userInput=new Scanner(System.in);
-	static double firstNumber,secondNumber;
+	static double firstNumber=0;
+	static double secondNumber=0;
 	public static void main(String[] args) {
 		Scanner choice=new Scanner(System.in);
-		String userChoice;
+		String userChoice="";
 		System.out.println(	"1. Add\n"+
 							"2. Subtract\n"+
 							"3. Multiply\n"+
