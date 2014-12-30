@@ -17,9 +17,9 @@ public class SearchCity {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String[] cities;
-		cities=new String[10];
-		String searchString=new String();
+		String[] cities=new String[10];
+		boolean found=false;
+		String searchString;
 		Scanner userInput=new Scanner(System.in);
 		System.out.println("Enter the name of 10 cities");
 		for(int i=0;i<10;i++){
@@ -29,8 +29,12 @@ public class SearchCity {
 		searchString=userInput.nextLine();
 		for(int i=0;i<10;i++){
 			if(cities[i].toLowerCase().contains(searchString.toLowerCase())){
-				System.out.println(cities[i]);
+				System.out.printf("Found: %s", cities[i]);
+				found=true;
 			}
+		}
+		if(!found){
+			System.out.printf("No such cities with the search string %s",searchString);
 		}
 		userInput.close();
 	}
