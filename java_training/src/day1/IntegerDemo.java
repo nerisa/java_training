@@ -22,9 +22,10 @@ public class IntegerDemo {
 			valueOutRange = userInput.nextInt();
 			System.out.println(valueOutRange);
 		} catch (InputMismatchException e) {
-			e.printStackTrace();
+			System.out.println("Exception occured while providing input : "+e.getMessage());
+		}finally{
+			userInput.close();
 		}
-		userInput.close();
 
 	}
 
