@@ -12,18 +12,21 @@ import java.util.Scanner;
  */
 public class FullNameConcat {
 	public static void main(String[] args){
-		String salutation=new String();
-		String firstName=new String();
-		String middleName=new String();
-		String lastName=new String();
+		String salutation;
+		String firstName;
+		String middleName;
+		String lastName;
 		String nameSeparater=" ";
 		StringBuilder fullName=new StringBuilder();
 		Scanner inputValue=new Scanner(System.in);
 		do{
 			System.out.println("Enter your salutation");
 			salutation=inputValue.nextLine().trim();
-			fullName.append(salutation);
+			if (salutation.isEmpty()){
+				System.out.println("Salutation is a required field");
+			}
 		}while(salutation.isEmpty());
+		fullName.append(salutation);
 		fullName.append(nameSeparater);
 		do{
 			System.out.println("Enter your first name");
