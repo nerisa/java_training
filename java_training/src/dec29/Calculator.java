@@ -57,7 +57,7 @@ public class Calculator {
 			firstNumber=Double.parseDouble(userInput.nextLine());
 			secondNumber=Double.parseDouble(userInput.nextLine());
 		}catch (NumberFormatException e){
-			System.out.println("Invalid numbers");
+			System.err.println("Expcetion while formatting number: "+ e.getMessage());
 		}
 		result=firstNumber+secondNumber;
 		System.out.printf("Result= %f", result);
@@ -72,7 +72,7 @@ public class Calculator {
 			System.out.println("Enter the subtrahend");
 			secondNumber=Double.parseDouble(userInput.nextLine());
 		}catch (NumberFormatException e){
-			System.out.println("Invalid numbers");
+			System.err.println("Expcetion while formatting number: "+ e.getMessage());
 		}
 		result=firstNumber-secondNumber;
 		System.out.printf("Result= %f", result);
@@ -86,7 +86,7 @@ public class Calculator {
 			firstNumber=Double.parseDouble(userInput.nextLine());
 			secondNumber=Double.parseDouble(userInput.nextLine());
 		}catch (NumberFormatException e){
-			System.out.println("Invalid numbers");
+			System.err.println("Expcetion while formatting number: "+ e.getMessage());
 		}
 		result=firstNumber*secondNumber;
 		System.out.printf("Result= %f", result);
@@ -95,14 +95,19 @@ public class Calculator {
 	public static void divide(){
 		//computes dividend/divisor and prints the result 
 		double result=0.0;
-		try{
-			System.out.println("Enter the dividend");
-			firstNumber=Double.parseDouble(userInput.nextLine());
-			System.out.println("Enter the divisor");
-			secondNumber=Double.parseDouble(userInput.nextLine());
-		}catch (NumberFormatException e){
-			System.out.println("Invalid numbers");
-		}
+		do{
+			try{
+				System.out.println("\nEnter the dividend");
+				firstNumber=Double.parseDouble(userInput.nextLine());
+				System.out.println("Enter the divisor");
+				secondNumber=Double.parseDouble(userInput.nextLine());
+			}catch (NumberFormatException e){
+				System.err.println("Expcetion while formatting number: "+ e.getMessage());
+			}
+			if(secondNumber==0){
+				System.out.println("Divisor cannot be 0");
+			}
+		}while(secondNumber==0);
 		result=firstNumber/secondNumber;
 		System.out.printf("Result= %f", result);
 		
@@ -111,14 +116,19 @@ public class Calculator {
 	public static void modulus(){
 		//computes the remainder of dividend/divisor and prints the result
 		double result=0.0;
-		try{
-			System.out.println("Enter the dividend");
-			firstNumber=Double.parseDouble(userInput.nextLine());
-			System.out.println("Enter the divisor");
-			secondNumber=Double.parseDouble(userInput.nextLine());
-		}catch (NumberFormatException e){
-			System.out.println("Invalid numbers");
-		}
+		do{
+			try{
+				System.out.println("Enter the dividend");
+				firstNumber=Double.parseDouble(userInput.nextLine());
+				System.out.println("Enter the divisor");
+				secondNumber=Double.parseDouble(userInput.nextLine());
+			}catch (NumberFormatException e){
+				System.err.println("Expcetion while formatting number: "+ e.getMessage());
+			}
+			if(secondNumber==0){
+				System.out.println("Divisor cannot be 0");
+			}
+		}while(secondNumber==0);
 		result=firstNumber%secondNumber;
 		System.out.printf("Result= %f", result);
 	}
