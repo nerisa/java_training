@@ -14,11 +14,17 @@ import java.util.Scanner;
  * 
  */
 public class PalindromeChecker {
+	/** checks the integer palindrome
+	 * @param number user entered number 
+	 */
 	static int number = 0;
 
 	public static boolean validChecker() {
+		/** checks whether the entered number is a 5 digit integer
+		 * @param inputValid variable that checks the validity
+		 */
 		boolean inputValid = false;
-		if (Integer.toString(number).length() == 5) {
+		if (Integer.toString(Math.abs(number)).length() == 5) {
 			inputValid = true;
 		}
 		return inputValid;
@@ -26,7 +32,14 @@ public class PalindromeChecker {
 	}
 
 	public static void main(String[] args) {
-		boolean is5digit = false, notInteger = false;
+		/**
+		 * @param is5digit stores whether the user input is 5 digit
+		 * @param notInteger stores if the user entered invalid nos.
+		 * @param initialNumber stores the user entered integer converted to string
+		 * @param reverseNumber stores the reversed integer in string format 
+		 */
+		boolean is5digit = false;
+		boolean notInteger = false;
 		String initialNumber;
 		String reverseNumber = "";
 		Scanner userInput = new Scanner(System.in);
@@ -48,7 +61,7 @@ public class PalindromeChecker {
 		} finally {
 			userInput.close();
 		}
-		initialNumber = Integer.toString(number);
+		initialNumber = Integer.toString(Math.abs(number));
 		// System.out.println(initialNumber);
 		for (int i = initialNumber.length() - 1; i >= 0; i--) {
 			reverseNumber = reverseNumber + initialNumber.charAt(i);
