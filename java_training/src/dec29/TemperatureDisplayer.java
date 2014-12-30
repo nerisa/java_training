@@ -16,7 +16,8 @@ public class TemperatureDisplayer {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		double celsius=0.0,fahrenheit=0.0;
+		double celsius=0.0;
+		double fahrenheit=0.0;
 		do{
 			fahrenheit=celsius *(9.0/5.0)+32;
 			// \u2103=degree celsius symbol \u2109=degree fahrenheit symbol
