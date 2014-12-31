@@ -1,14 +1,13 @@
-/**Create a class MutableImmutableDemo. 
- * Inside that class create object greeting of String and another object welcome of StringBuilder type. 
- * Try to modify both objects by concatenating substring as suffix
- */
-
 package day1;
 
 import java.util.Scanner;
+
 /**
+ * Create a class MutableImmutableDemo. Inside that class create object greeting
+ * of String and another object welcome of StringBuilder type. Try to modify
+ * both objects by concatenating substring as suffix
+ * 
  * @author nerisa
- *
  */
 
 public class MutableImmutableDemo {
