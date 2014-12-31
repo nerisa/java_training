@@ -1,51 +1,36 @@
-/**A palindrome is a sequence of characters that reads the same backward as forward. 
- * For example, each of the following five-digit integers is a palindrome: 12321, 55555, 45554 and 11611. 
- * Write an application that reads in a five-digit integer and determines whether it is a palindrome. 
- * If the number is not five digits long, display an error message and allow the user to enter a new value.
- * 
- */
 package dec29;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * checks the integer palindrome
+ * A palindrome is a sequence of characters that reads the same backward as
+ * forward. For example, each of the following five-digit integers is a
+ * palindrome: 12321, 55555, 45554 and 11611. Write an application that reads in
+ * a five-digit integer and determines whether it is a palindrome. If the number
+ * is not five digits long, display an error message and allow the user to enter
+ * a new value.
  * 
  * @author nerisa
- * @param number
- *            user entered number
- * 
  */
 public class PalindromeChecker {
 
 	static int number = 0;
 
 	/**
-	 * checks whether the entered number is a 5 digit integer
+	 * Checks whether the entered number is a 5 digit integer
 	 * 
-	 * @param inputValid
-	 *            variable that checks the validity
+	 * @return true if the user entered variable is 5 digit integer
 	 */
 	public static boolean validChecker() {
-		boolean inputValid = false;
 		if (Integer.toString(Math.abs(number)).length() == 5) {
-			inputValid = true;
+			return true;
+		} else {
+			return false;
 		}
-		return inputValid;
 
 	}
 
-	/**
-	 * @param is5digit
-	 *            stores whether the user input is 5 digit
-	 * @param notInteger
-	 *            stores if the user entered invalid nos.
-	 * @param initialNumber
-	 *            stores the user entered integer converted to string
-	 * @param reverseNumber
-	 *            stores the reversed integer in string format
-	 */
 	public static void main(String[] args) {
 		boolean is5digit = false;
 		boolean notInteger = false;
@@ -74,7 +59,6 @@ public class PalindromeChecker {
 		for (int i = initialNumber.length() - 1; i >= 0; i--) {
 			reverseNumber = reverseNumber + initialNumber.charAt(i);
 		}
-		// System.out.println(reverseNumber);
 		if (initialNumber.equals(reverseNumber)) {
 			System.out.println("Palindrome");
 		} else {
