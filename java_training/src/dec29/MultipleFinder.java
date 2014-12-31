@@ -1,10 +1,8 @@
-/**
- * 
- */
 package dec29;
 
 /**
- * finds the number and sum of multiples of 7 between 100 and 200
+ * Finds the number of and sum of all integers greater than 100 and less than
+ * 200 that are divisible by 7.
  * 
  * @author nerisa
  * 
