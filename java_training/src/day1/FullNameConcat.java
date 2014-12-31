@@ -15,7 +15,7 @@ public class FullNameConcat {
 		String middleName;
 		String lastName;
 		String choice = "y";
-		String nameSeparater = " ";
+		final String NAME_SEPARATER = " ";
 		StringBuilder fullName = new StringBuilder();
 		Scanner inputValue = new Scanner(System.in);
 		do {
@@ -26,7 +26,7 @@ public class FullNameConcat {
 			}
 		} while (salutation.isEmpty());
 		fullName.append(salutation);
-		fullName.append(nameSeparater);
+		fullName.append(NAME_SEPARATER);
 		do {
 			System.out.println("Enter your first name");
 			firstName = inputValue.nextLine().trim();
@@ -36,7 +36,7 @@ public class FullNameConcat {
 
 		} while (firstName.isEmpty());
 		fullName.append(firstName);
-		fullName.append(nameSeparater);
+		fullName.append(NAME_SEPARATER);
 		do {
 			System.out.println("Enter your middle name");
 			middleName = inputValue.nextLine().trim();
@@ -48,7 +48,7 @@ public class FullNameConcat {
 		} while (choice.equalsIgnoreCase("n") && middleName.isEmpty());
 		if (!middleName.isEmpty()) {
 			fullName.append(middleName);
-			fullName.append(nameSeparater);
+			fullName.append(NAME_SEPARATER);
 		}
 		do {
 			System.out.println("Enter your last name");
