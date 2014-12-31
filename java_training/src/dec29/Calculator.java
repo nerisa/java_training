@@ -1,47 +1,70 @@
-/**Write a program using switch statement to develop a simple calculator for +, -, *, /, and % operators.
- * 
- */
 package dec29;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * performs simple calculations of two user entered numbers
+ * Write a program using switch statement to develop a simple calculator for +,
+ * -, *, /, and % operators.
  * 
  * @author nerisa
- * @param firstNumber
- *            first operand of the operations
- * @param secondNumber
- *            second operand of the operations
+ * 
  */
+
 public class Calculator {
 	static Scanner userInput = new Scanner(System.in);
-	static double firstNumber = 0;
-	static double secondNumber = 0;
+
+	/**
+	 * Gets the user input for the operands and checks its validity
+	 * 
+	 * @return the user input operand
+	 */
+	private static double getUserInput() {
+		double enteredNumber = 0;
+		boolean isCorrect = false;
+		do {
+			try {
+				isCorrect = true;
+				enteredNumber = userInput.nextDouble();
+			} catch (InputMismatchException e) {
+				System.err.println("Expcetion while formatting number: "
+						+ e.getMessage() + "\n Enter again");
+				isCorrect = false;
+			}
+		} while (!isCorrect);
+		return enteredNumber;
+	}
 
 	public static void main(String[] args) {
+		double firstNumber = 0;
+		double secondNumber = 0;
+		double result = 0;
 		Scanner choice = new Scanner(System.in);
 		String userChoice = "";
-		System.out.println("1. Add\n" + "2. Subtract\n" + "3. Multiply\n"
-				+ "4. Divide\n" + "5. Remainder");
-		System.out.println("Enter the required operation:");
 		try {
+			System.out.println("Enter the first operand");
+			firstNumber = getUserInput();
+			System.out.println("Enter the required operation:");
+			System.out.println("1. Add\n" + "2. Subtract\n" + "3. Multiply\n"
+					+ "4. Divide\n" + "5. Remainder");
 			userChoice = choice.nextLine();
+			System.out.println("Enter the second operand");
+			secondNumber = getUserInput();
 			switch (userChoice) {
 			case "1":
-				add();
+				result = add(firstNumber, secondNumber);
 				break;
 			case "2":
-				subtract();
+				result = subtract(firstNumber, secondNumber);
 				break;
 			case "3":
-				multiply();
+				result = multiply(firstNumber, secondNumber);
 				break;
 			case "4":
-				divide();
+				result = divide(firstNumber, secondNumber);
 				break;
 			case "5":
-				modulus();
+				result = modulus(firstNumber, secondNumber);
 				break;
 			default:
 				System.out.println("Invalid choice");
@@ -49,123 +72,88 @@ public class Calculator {
 
 			}
 		} finally {
+			userInput.close();
 			choice.close();
 		}
+		System.out.println("Result=" + result);
 
 	}
 
 	/**
-	 * Adds the user entered variables and displays the result
+	 * Adds the user entered variables
 	 * 
-	 * @param result
-	 *            stores the result of addition
+	 * @param firstOperand
+	 *            first operand
+	 * @param secondOperand
+	 *            second operand
+	 * @return the result of addition
 	 */
-	public static void add() {
-
-		double result = 0.0;
-		System.out.println("Enter the two nos to be added");
-		try {
-			firstNumber = Double.parseDouble(userInput.nextLine());
-			secondNumber = Double.parseDouble(userInput.nextLine());
-		} catch (NumberFormatException e) {
-			System.err.println("Expcetion while formatting number: "
-					+ e.getMessage());
-		}
-		result = firstNumber + secondNumber;
-		System.out.printf("Result= %f", result);
+	public static double add(double firstOperand, double secondOperand) {
+		return (firstOperand + secondOperand);
 	}
 
 	/**
 	 * subtracts the user entered variables and prints the result
 	 * 
-	 * @param result
-	 *            stores the result of subtraction
+	 * @param firstOperand
+	 *            minuend
+	 * @param secondOperand
+	 *            subtrahend
+	 * @return the difference of operands
+	 * 
 	 */
-	public static void subtract() {
-		double result = 0.0;
-		try {
-			System.out.println("Enter the minuend");
-			firstNumber = Double.parseDouble(userInput.nextLine());
-			System.out.println("Enter the subtrahend");
-			secondNumber = Double.parseDouble(userInput.nextLine());
-		} catch (NumberFormatException e) {
-			System.err.println("Expcetion while formatting number: "
-					+ e.getMessage());
-		}
-		result = firstNumber - secondNumber;
-		System.out.printf("Result= %f", result);
+	public static double subtract(double firstOperand, double secondOperand) {
+		return (firstOperand - secondOperand);
 	}
 
 	/**
-	 * Multiplies the user entered variables and displays the result
+	 * Multiplies the user entered variables
 	 * 
-	 * @param result
-	 *            stores the result of multiplication
+	 * @param firstOperand
+	 *            multiplicand
+	 * @param secondOperand
+	 *            multiplier
+	 * @return the multiplication of operands
 	 */
-	public static void multiply() {
-		double result = 0.0;
-		System.out.println("Enter the two nos to be multiplied");
-		try {
-			firstNumber = Double.parseDouble(userInput.nextLine());
-			secondNumber = Double.parseDouble(userInput.nextLine());
-		} catch (NumberFormatException e) {
-			System.err.println("Expcetion while formatting number: "
-					+ e.getMessage());
-		}
-		result = firstNumber * secondNumber;
-		System.out.printf("Result= %f", result);
+	public static double multiply(double firstOperand, double secondOperand) {
+		return (firstOperand * secondOperand);
 	}
 
 	/**
-	 * computes dividend/divisor and prints the result
+	 * computes dividend/divisor
 	 * 
-	 * @param result
-	 *            stores the result of division
+	 * @param firstOperand
+	 *            dividend
+	 * @param secondOperand
+	 *            divisor
+	 * @return the quotient
 	 */
-	public static void divide() {
-		double result = 0.0;
+	public static double divide(double firstOperand, double secondOperand) {
 		do {
-			try {
-				System.out.println("\nEnter the dividend");
-				firstNumber = Double.parseDouble(userInput.nextLine());
-				System.out.println("Enter the divisor");
-				secondNumber = Double.parseDouble(userInput.nextLine());
-			} catch (NumberFormatException e) {
-				System.err.println("Expcetion while formatting number: "
-						+ e.getMessage());
+			if (secondOperand == 0) {
+				System.out.println("Divisor cannot be 0. Enter again");
+				secondOperand = getUserInput();
 			}
-			if (secondNumber == 0) {
-				System.out.println("Divisor cannot be 0");
-			}
-		} while (secondNumber == 0);
-		result = firstNumber / secondNumber;
-		System.out.printf("Result= %f", result);
-
+		} while (secondOperand == 0);
+		return (firstOperand / secondOperand);
 	}
 
 	/**
-	 * computes the remainder of dividend/divisor and prints the result
+	 * computes the remainder of dividend/divisor
 	 * 
-	 * @param result
-	 *            stores the remainder
+	 * @param firstOperand
+	 *            dividend
+	 * @param secondOperand
+	 *            divisor
+	 * @return the quotient
 	 */
-	public static void modulus() {
-		double result = 0.0;
+	public static double modulus(double firstOperand, double secondOperand) {
 		do {
-			try {
-				System.out.println("Enter the dividend");
-				firstNumber = Double.parseDouble(userInput.nextLine());
-				System.out.println("Enter the divisor");
-				secondNumber = Double.parseDouble(userInput.nextLine());
-			} catch (NumberFormatException e) {
-				System.err.println("Expcetion while formatting number: "
-						+ e.getMessage());
+			if (secondOperand == 0) {
+				System.out.println("Divisor cannot be 0. Enter again");
+				secondOperand = getUserInput();
 			}
-			if (secondNumber == 0) {
-				System.out.println("Divisor cannot be 0");
-			}
-		} while (secondNumber == 0);
-		result = firstNumber % secondNumber;
-		System.out.printf("Result= %f", result);
+		} while (secondOperand == 0);
+		return (firstOperand % secondOperand);
 	}
 }
