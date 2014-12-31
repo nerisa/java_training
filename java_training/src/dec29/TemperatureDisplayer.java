@@ -1,13 +1,9 @@
-/**Write a program that displays the temperatures from 0 degrees Celsius to 100 degrees Celsius 
- * and its Fahrenheit equivalent. 
- * Note that the conversion from Celsius to Fahrenheit uses the following formula: 
- * F = C * 9/5 + 32;
- * 
- */
 package dec29;
 
 /**
- * displays temperature in celcius from 0 to 100 and its fahrenheit equivalent
+ * Write a program that displays the temperatures from 0 degrees Celsius to 100
+ * degrees Celsius and its Fahrenheit equivalent. Note that the conversion from
+ * Celsius to Fahrenheit uses the following formula: F = C * 9/5 + 32;
  * 
  * @author nerisa
  * 
