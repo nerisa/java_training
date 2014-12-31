@@ -10,19 +10,24 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
+ * checks the integer palindrome
+ * 
  * @author nerisa
+ * @param number
+ *            user entered number
  * 
  */
 public class PalindromeChecker {
-	/** checks the integer palindrome
-	 * @param number user entered number 
-	 */
+
 	static int number = 0;
 
+	/**
+	 * checks whether the entered number is a 5 digit integer
+	 * 
+	 * @param inputValid
+	 *            variable that checks the validity
+	 */
 	public static boolean validChecker() {
-		/** checks whether the entered number is a 5 digit integer
-		 * @param inputValid variable that checks the validity
-		 */
 		boolean inputValid = false;
 		if (Integer.toString(Math.abs(number)).length() == 5) {
 			inputValid = true;
@@ -31,13 +36,17 @@ public class PalindromeChecker {
 
 	}
 
+	/**
+	 * @param is5digit
+	 *            stores whether the user input is 5 digit
+	 * @param notInteger
+	 *            stores if the user entered invalid nos.
+	 * @param initialNumber
+	 *            stores the user entered integer converted to string
+	 * @param reverseNumber
+	 *            stores the reversed integer in string format
+	 */
 	public static void main(String[] args) {
-		/**
-		 * @param is5digit stores whether the user input is 5 digit
-		 * @param notInteger stores if the user entered invalid nos.
-		 * @param initialNumber stores the user entered integer converted to string
-		 * @param reverseNumber stores the reversed integer in string format 
-		 */
 		boolean is5digit = false;
 		boolean notInteger = false;
 		String initialNumber = "";
@@ -46,7 +55,7 @@ public class PalindromeChecker {
 		try {
 			do {
 				do {
-					notInteger=false;
+					notInteger = false;
 					System.out.println("Enter a five digit integer");
 					try {
 						number = userInput.nextInt();
