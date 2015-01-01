@@ -22,6 +22,12 @@ public class GuessingGameRun {
 	}
 }
 
+/**
+ * Controls the game play
+ * 
+ * @author nerisa
+ * 
+ */
 class GuessingGame {
 	private int userEnteredNumber = 0;
 	private LinkedList<Integer> userGuesses = new LinkedList<Integer>();
@@ -61,7 +67,7 @@ class GuessingGame {
 	}
 
 	/**
-	 * Compares the user's guess and the random number and displays the result
+	 * Compares the user's guess and the random number
 	 */
 	public void play() {
 		char guessAgain = 'n';
