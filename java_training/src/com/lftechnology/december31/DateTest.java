@@ -38,9 +38,9 @@ public class DateTest {
  * 
  */
 class DateUtility {
-	private int day;
-	private int month;
-	private int year;
+	private int day = 0;
+	private int month = 0;
+	private int year = 0;
 
 	/**
 	 * Sets the instance variables
