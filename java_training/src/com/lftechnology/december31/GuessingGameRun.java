@@ -17,7 +17,7 @@ import java.util.Scanner;
  */
 public class GuessingGameRun {
 	public static void main(String[] args) {
-		GuessingGame game = new GuessingGame(1, 10);
+		GuessingGame game = new GuessingGame(1, 100);
 		game.play();
 	}
 }
@@ -35,6 +35,7 @@ class GuessingGame {
 	Scanner userInput = new Scanner(System.in);
 	private int lowerLimit;
 	private int upperLimit;
+	private final int maxAttempts = 5;
 
 	/**
 	 * Sets the upper limit and lower limit for the game
@@ -109,7 +110,7 @@ class GuessingGame {
 					guessAgain = userInput.next().charAt(0);
 				}
 			} while ((guessAgain == 'y' || guessAgain == 'Y')
-					&& userGuesses.size() < 5);
+					&& userGuesses.size() < maxAttempts);
 			displayResult();
 		} finally {
 			userInput.close();
@@ -120,7 +121,7 @@ class GuessingGame {
 	 * Displays the result of the game
 	 */
 	private void displayResult() {
-		if (userGuesses.size() == 5) {
+		if (userGuesses.size() == maxAttempts) {
 			System.out.println("No guesses left");
 		}
 		System.out.println("No. of guesses: " + userGuesses.size());
