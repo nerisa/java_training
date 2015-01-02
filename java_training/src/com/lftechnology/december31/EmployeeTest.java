@@ -42,9 +42,9 @@ public class EmployeeTest {
  * 
  */
 class Employee {
-	private String firstName;
-	private String lastName;
-	private double salary;
+	private String firstName = "";
+	private String lastName = "";
+	private double salary = 0.0;
 
 	/**
 	 * Sets all the instance variables
