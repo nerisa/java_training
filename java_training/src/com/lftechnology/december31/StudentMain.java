@@ -38,9 +38,9 @@ public class StudentMain {
  * 
  */
 class Student {
-	private String name;
-	private int grade;
-	private String rollNum;
+	private String name = "";
+	private int grade = 0;
+	private String rollNum = "";
 	private int marks[] = new int[5];
 
 	public Student(String name, int grade, String rollNum, int[] marks) {
