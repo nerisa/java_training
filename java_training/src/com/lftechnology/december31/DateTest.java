@@ -18,6 +18,8 @@ public class DateTest {
 		date.displayDate();
 		date.setYear(2016);
 		date.displayDate();
+		Date date2 = new Date(-2, 0, 23);
+		date2.displayDate();
 
 	}
 
@@ -48,9 +50,28 @@ class Date {
 	 * @param year
 	 */
 	public Date(int day, int month, int year) {
-		this.day = day;
-		this.month = month;
-		this.year = year;
+		boolean formatIncorrect = false;
+		if (day < 0 || day > 31) {
+			this.day = 0;
+			formatIncorrect = true;
+		} else {
+			this.day = day;
+		}
+		if (month < 0 || month > 12) {
+			this.month = 0;
+			formatIncorrect = true;
+		} else {
+			this.month = month;
+		}
+		if (String.valueOf(year).length() != 4) {
+			this.year = 0;
+			formatIncorrect = true;
+		} else {
+			this.year = year;
+		}
+		if (formatIncorrect) {
+			System.err.println("Incorrect Date format");
+		}
 
 	}
 
