@@ -10,7 +10,7 @@ package com.lftechnology.december31;
 public class DateTest {
 
 	public static void main(String[] args) {
-		Date date = new Date(2, 1, 2015);
+		DateUtility date = new DateUtility(2, 1, 2015);
 		date.displayDate();
 		date.setDay(3);
 		date.displayDate();
@@ -18,7 +18,7 @@ public class DateTest {
 		date.displayDate();
 		date.setYear(2016);
 		date.displayDate();
-		Date date2 = new Date(-2, 0, 23);
+		DateUtility date2 = new DateUtility(-2, 0, 23);
 		date2.displayDate();
 
 	}
@@ -37,7 +37,7 @@ public class DateTest {
  * @author nerisa
  * 
  */
-class Date {
+class DateUtility {
 	private int day;
 	private int month;
 	private int year;
@@ -49,7 +49,7 @@ class Date {
 	 * @param month
 	 * @param year
 	 */
-	public Date(int day, int month, int year) {
+	public DateUtility(int day, int month, int year) {
 		boolean formatIncorrect = false;
 		if (day < 0 || day > 31) {
 			this.day = 0;
