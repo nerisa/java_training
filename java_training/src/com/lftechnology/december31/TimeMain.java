@@ -101,7 +101,7 @@ class TimeUtility {
 	 * Adds two objects of the Time class
 	 * 
 	 * @param t
-	 * @return
+	 * @return a Time object that stores the added time
 	 */
 	public TimeUtility addTime(TimeUtility t) {
 		int sum = seconds + t.getSeconds() + ((minutes + t.getMinutes()) * 60)
