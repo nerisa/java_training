@@ -30,9 +30,9 @@ public class TimeMain {
  * 
  */
 class TimeUtility {
-	private int hours;
-	private int minutes;
-	private int seconds;
+	private int hours = 0;
+	private int minutes = 0;
+	private int seconds = 0;
 
 	/**
 	 * Constructor to convert the seconds into instance variables
