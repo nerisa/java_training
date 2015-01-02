@@ -70,7 +70,7 @@ class DateUtility {
 			this.year = year;
 		}
 		if (formatIncorrect) {
-			System.err.println("Incorrect Date format");
+			System.out.println("Incorrect Date format");
 		}
 
 	}
