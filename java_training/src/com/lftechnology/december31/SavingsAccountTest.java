@@ -47,8 +47,8 @@ public class SavingsAccountTest {
  * 
  */
 class SavingsAccount {
-	private static float annualInterestRate;
-	private float savingsBalance;
+	private static float annualInterestRate = 0.0f;
+	private float savingsBalance = 0.0f;
 
 	public SavingsAccount(float savingsBalance) {
 		this.savingsBalance = savingsBalance;
