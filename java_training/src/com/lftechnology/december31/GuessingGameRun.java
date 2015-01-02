@@ -33,8 +33,8 @@ class GuessingGame {
 	private LinkedList<Integer> userGuesses = new LinkedList<Integer>();
 	private int randomInteger = 0;
 	private Scanner userInput = new Scanner(System.in);
-	private int lowerLimit;
-	private int upperLimit;
+	private int lowerLimit = 0;
+	private int upperLimit = 0;
 	private final int maxAttempts = 5;
 
 	/**
