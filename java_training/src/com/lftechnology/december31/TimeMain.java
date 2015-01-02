@@ -9,11 +9,11 @@ package com.lftechnology.december31;
 public class TimeMain {
 
 	public static void main(String[] args) {
-		Time time1 = new Time(300);
-		Time time2 = new Time(2, 60, 60);
+		TimeUtility time1 = new TimeUtility(300);
+		TimeUtility time2 = new TimeUtility(2, 60, 60);
 		time1.displayTime();
 		time2.displayTime();
-		Time addedTime = time1.addTime(time2);
+		TimeUtility addedTime = time1.addTime(time2);
 		System.out.println("added time:");
 		addedTime.displayTime();
 	}
@@ -29,7 +29,7 @@ public class TimeMain {
  * @author nerisa
  * 
  */
-class Time {
+class TimeUtility {
 	private int hours;
 	private int minutes;
 	private int seconds;
@@ -39,7 +39,7 @@ class Time {
 	 * 
 	 * @param seconds
 	 */
-	public Time(int seconds) {
+	public TimeUtility(int seconds) {
 		if (seconds >= 60) {
 			this.minutes = seconds / 60;
 			if (this.minutes >= 60) {
@@ -61,7 +61,7 @@ class Time {
 	 * @param minutes
 	 * @param seconds
 	 */
-	public Time(int hours, int minutes, int seconds) {
+	public TimeUtility(int hours, int minutes, int seconds) {
 		if (seconds >= 60) {
 			this.minutes = minutes + seconds / 60;
 			if (this.minutes >= 60) {
@@ -103,10 +103,10 @@ class Time {
 	 * @param t
 	 * @return
 	 */
-	public Time addTime(Time t) {
+	public TimeUtility addTime(TimeUtility t) {
 		int sum = seconds + t.getSeconds() + ((minutes + t.getMinutes()) * 60)
 				+ ((hours + t.getHours()) * 60 * 60);
-		return (new Time(sum));
+		return (new TimeUtility(sum));
 
 	}
 
