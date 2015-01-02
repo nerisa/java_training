@@ -42,6 +42,10 @@ class DateUtility {
 	private int month = 0;
 	private int year = 0;
 
+	public DateUtility() {
+
+	}
+
 	/**
 	 * Sets the instance variables
 	 * 
@@ -50,27 +54,31 @@ class DateUtility {
 	 * @param year
 	 */
 	public DateUtility(int day, int month, int year) {
-		boolean formatIncorrect = false;
-		if (day < 0 || day > 31) {
-			this.day = 0;
-			formatIncorrect = true;
-		} else {
+		boolean validDate = isFormatValid(day, month, year);
+		if (validDate) {
 			this.day = day;
-		}
-		if (month < 0 || month > 12) {
-			this.month = 0;
-			formatIncorrect = true;
-		} else {
 			this.month = month;
-		}
-		if (String.valueOf(year).length() != 4) {
-			this.year = 0;
-			formatIncorrect = true;
-		} else {
 			this.year = year;
+		} else {
+			System.out.println("Invalid date format");
 		}
-		if (formatIncorrect) {
-			System.out.println("Incorrect Date format");
+
+	}
+
+	/**
+	 * Checks whether the format of the date is valid
+	 * 
+	 * @param day
+	 * @param month
+	 * @param year
+	 * @return true if the format of the date is valid
+	 */
+	private boolean isFormatValid(int day, int month, int year) {
+		if (day < 0 || day > 31 || month < 0 || month > 12
+				|| String.valueOf(year).length() != 4) {
+			return false;
+		} else {
+			return true;
 		}
 
 	}
