@@ -17,7 +17,7 @@ import java.util.Scanner;
  */
 public class GuessingGameRun {
 	public static void main(String[] args) {
-		GuessingGame game = new GuessingGame();
+		GuessingGame game = new GuessingGame(1, 10);
 		game.play();
 	}
 }
@@ -33,16 +33,31 @@ class GuessingGame {
 	private LinkedList<Integer> userGuesses = new LinkedList<Integer>();
 	private int randomInteger = 0;
 	Scanner userInput = new Scanner(System.in);
+	private int lowerLimit;
+	private int upperLimit;
 
 	/**
-	 * Generates a random number between 1 and 100
+	 * Sets the upper limit and lower limit for the game
+	 * 
+	 * @param upperLimit
+	 *            maximum value of the random number generated
+	 * @param lowerLimit
+	 *            minimum value of the random number generated
+	 */
+	public GuessingGame(int lowerLimit, int upperLimit) {
+		this.lowerLimit = lowerLimit;
+		this.upperLimit = upperLimit;
+	}
+
+	/**
+	 * Generates a random number between upperLimit and lowerLimit
 	 * 
 	 */
 	private void generateRandomInteger() {
 		Random random = new Random();
 		do {
-			randomInteger = random.nextInt(100);
-		} while (randomInteger < 2);
+			randomInteger = random.nextInt(upperLimit);
+		} while (randomInteger <= lowerLimit);
 	}
 
 	/**
@@ -51,7 +66,8 @@ class GuessingGame {
 	private void getInput() {
 		boolean isInteger = false;
 		do {
-			System.out.println("Enter your guess between 1 and 100");
+			System.out.println("Enter your guess between " + lowerLimit
+					+ " and " + upperLimit);
 			do {
 				try {
 					isInteger = true;
@@ -63,7 +79,8 @@ class GuessingGame {
 					isInteger = false;
 				}
 			} while (!isInteger);
-		} while (userEnteredNumber < 2 || userEnteredNumber > 99);
+		} while (userEnteredNumber <= lowerLimit
+				|| userEnteredNumber >= upperLimit);
 	}
 
 	/**
