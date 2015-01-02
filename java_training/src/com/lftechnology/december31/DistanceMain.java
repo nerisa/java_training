@@ -34,14 +34,14 @@ public class DistanceMain {
  * 
  */
 class Distance {
-	private int feet;
-	private float inches;
+	private int feet = 0;
+	private float inches = 0.0f;
 
 	/**
 	 * Sets the private data members of the class
 	 * 
-	 * @param setFeet
-	 * @param setInches
+	 * @param feet
+	 * @param inches
 	 */
 	public void setData(int feet, float inches) {
 		if (inches >= 12) {
