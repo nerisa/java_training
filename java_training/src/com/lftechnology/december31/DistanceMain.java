@@ -43,14 +43,14 @@ class Distance {
 	 * @param setFeet
 	 * @param setInches
 	 */
-	public void setData(int setFeet, float setInches) {
-		if (setInches >= 12) {
-			feet = (int) setInches / 12;
-			inches = (float) setInches - feet * 12;
-			feet += setFeet;
+	public void setData(int feet, float inches) {
+		if (inches >= 12) {
+			this.feet = (int) inches / 12;
+			this.inches = (float) inches - this.feet * 12;
+			this.feet += feet;
 		} else {
-			inches = setInches;
-			feet = setFeet;
+			this.inches = inches;
+			this.feet = feet;
 		}
 	}
 
