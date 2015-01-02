@@ -74,6 +74,13 @@ class GuessingGame {
 		generateRandomInteger();
 		try {
 			do {
+				if (guessAgain == 'y' || guessAgain == 'Y') {
+					if (userEnteredNumber < randomInteger) {
+						System.out.println("Hint:Guess higher");
+					} else {
+						System.out.println("Hint:Guess lower");
+					}
+				}
 				getInput();
 				userGuesses.add(userEnteredNumber);
 				if (userEnteredNumber == randomInteger) {
