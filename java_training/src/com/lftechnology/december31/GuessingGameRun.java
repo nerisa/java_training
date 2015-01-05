@@ -1,7 +1,8 @@
 package com.lftechnology.december31;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.LinkedList;
+import java.util.List;
 import java.util.ListIterator;
 import java.util.Random;
 import java.util.Scanner;
@@ -30,7 +31,7 @@ public class GuessingGameRun {
  */
 class GuessingGame {
 	private int userEnteredNumber = 0;
-	private LinkedList<Integer> userGuesses = new LinkedList<Integer>();
+	private List<Integer> userGuesses = new ArrayList<Integer>();
 	private int randomInteger = 0;
 	private Scanner userInput = new Scanner(System.in);
 	private int lowerLimit = 0;
