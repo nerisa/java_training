@@ -85,7 +85,7 @@ class MyArray {
 	 * Searches for a value in the array and prints all the indexes of the value
 	 * 
 	 * @param key
-	 *            value to be searched
+	 *            value to be searched.It has to be entered as String.
 	 */
 	public void searchInArray(String key) {
 		boolean keyFound = false;
