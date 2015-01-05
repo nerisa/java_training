@@ -115,7 +115,7 @@ class Employee {
 	public void changeSalary(float percentageIncrease) {
 		double increasedSalary = salary + (double) salary * percentageIncrease
 				/ 100;
-		setSalary(increasedSalary);
+		this.setSalary(increasedSalary);
 
 	}
 }
