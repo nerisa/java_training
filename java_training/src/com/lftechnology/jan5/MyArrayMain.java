@@ -11,8 +11,8 @@ import java.util.logging.Logger;
 public class MyArrayMain {
 
 	public static void main(String[] args) {
-		String[] array = { "Hari", "bcd", "ef", "g", "h" };
-		String[] comparisonArray = { "h", "ef", "bcd", "abc", "gig" };
+		String[] array = { "abc", "bcd", "ef", "g", "h" };
+		String[] comparisonArray = { "h", "ef", "bcd", "abc", "g" };
 		MyArray myArray = new MyArray(array);
 		myArray.searchInArray("nerisa");
 		MyArray comparisonMyArray = new MyArray(comparisonArray);
