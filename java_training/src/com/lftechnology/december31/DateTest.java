@@ -54,12 +54,10 @@ class DateUtility {
 	 * @param year
 	 */
 	public DateUtility(int day, int month, int year) {
-		boolean validDate = isFormatValid(day, month, year);
-		if (validDate) {
-			this.day = day;
-			this.month = month;
-			this.year = year;
-		}
+		this.day = day;
+		this.month = month;
+		this.year = year;
+
 	}
 
 	/**
