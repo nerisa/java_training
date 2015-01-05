@@ -10,16 +10,16 @@ package com.lftechnology.december31;
 public class DateTest {
 
 	public static void main(String[] args) {
-		DateUtility date = new DateUtility(2, 1, 2015);
-		date.displayDate();
-		date.setDay(3);
-		date.displayDate();
-		date.setMonth(2);
-		date.displayDate();
-		date.setYear(2016);
-		date.displayDate();
-		DateUtility date2 = new DateUtility(-2, 0, 23);
-		date2.displayDate();
+		DateUtility today = new DateUtility(2, 1, 2015);
+		today.displayDate();
+		today.setDay(3);
+		today.displayDate();
+		today.setMonth(2);
+		today.displayDate();
+		today.setYear(2016);
+		today.displayDate();
+		DateUtility nextDay = new DateUtility(-2, 0, 23);
+		nextDay.displayDate();
 
 	}
 
@@ -59,10 +59,7 @@ class DateUtility {
 			this.day = day;
 			this.month = month;
 			this.year = year;
-		} else {
-			System.out.println("Invalid date format");
 		}
-
 	}
 
 	/**
@@ -74,7 +71,7 @@ class DateUtility {
 	 * @return true if the format of the date is valid
 	 */
 	private boolean isFormatValid(int day, int month, int year) {
-		if (day < 0 || day > 31 || month < 0 || month > 12
+		if (day < 1 || day > 31 || month < 1 || month > 12
 				|| String.valueOf(year).length() != 4) {
 			return false;
 		} else {
@@ -108,6 +105,7 @@ class DateUtility {
 	 */
 	public void setYear(int year) {
 		this.year = year;
+
 	}
 
 	/**
@@ -135,7 +133,11 @@ class DateUtility {
 	 * Displays the Date in dd/mm/yy format
 	 */
 	public void displayDate() {
-		System.out.println(day + "/" + month + "/" + year);
-	}
+		if (isFormatValid(day, month, year)) {
+			System.out.println(day + "/" + month + "/" + year);
+		} else {
+			System.out.println("Invalid date format");
+		}
 
+	}
 }
