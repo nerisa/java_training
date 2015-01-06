@@ -7,7 +7,7 @@ public class ContinuousInput {
 
 	public static void main(String[] args) {
 		Scanner userInput = new Scanner(System.in);
-		Logger LOG = Logger.getLogger("myLogger");
+		Logger LOG = Logger.getLogger(ContinuousInput.class.getName());
 		StringBuilder userSentence = new StringBuilder();
 		String userWord = "";
 		try {
