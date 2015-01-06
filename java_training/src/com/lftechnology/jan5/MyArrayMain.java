@@ -31,7 +31,7 @@ public class MyArrayMain {
  */
 class MyArray {
 	private String[] array;
-	private static Logger LOG = Logger.getLogger(MyArray.class.getName());
+	private static Logger log = Logger.getLogger(MyArray.class.getName());
 
 	public MyArray() {
 
@@ -91,11 +91,11 @@ class MyArray {
 		for (int i = 0; i < array.length; i++) {
 			if (array[i].equalsIgnoreCase(key)) {
 				keyFound = true;
-				LOG.info("Found " + key + "at:" + i);
+				log.info("Found " + key + "at:" + i);
 			}
 		}
 		if (!keyFound) {
-			LOG.info(key + " not found");
+			log.info(key + " not found");
 		}
 
 	}
@@ -116,12 +116,12 @@ class MyArray {
 				}
 			}
 			if (numberOfSameElements == array.length) {
-				LOG.info("Arrays have the same elements in order");
+				log.info("Arrays have the same elements in order");
 			} else {
-				LOG.info("Arrays not equal in order");
+				log.info("Arrays not equal in order");
 			}
 		} else {
-			LOG.info("Arrays cannot be compared");
+			log.info("Arrays cannot be compared");
 		}
 	}
 
@@ -145,12 +145,12 @@ class MyArray {
 				}
 			}
 			if (numberOfEqualElements == array.length) {
-				LOG.info("Equal arrays irrespective of the order");
+				log.info("Equal arrays irrespective of the order");
 			} else {
-				LOG.info("Arrays not equal");
+				log.info("Arrays not equal");
 			}
 		} else {
-			LOG.info("Arrays cannot be compared");
+			log.info("Arrays cannot be compared");
 
 		}
 
