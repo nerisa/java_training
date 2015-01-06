@@ -23,9 +23,8 @@ public class MyArrayMain {
 }
 
 /**
- * This class has methods to search for a certain value in an array of integer
- * String type and float type,compare if the two arrays has the same content in
- * the same order as well as in different order.
+ * This class has methods to search for a certain value in an array of integer String type and float type,compare if the two arrays has the
+ * same content in the same order as well as in different order.
  * 
  * @author nerisa
  * 
@@ -127,8 +126,7 @@ class MyArray {
 	}
 
 	/**
-	 * Compares if the two arrays are equal irrespective of the order of
-	 * elements
+	 * Compares if the two arrays are equal irrespective of the order of elements
 	 * 
 	 * @param compareArray
 	 *            array to be compared
