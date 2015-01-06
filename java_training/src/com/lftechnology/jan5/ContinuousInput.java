@@ -3,6 +3,13 @@ package com.lftechnology.jan5;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
+/**
+ * A program that constantly prompts the user to enter something (using the Scanner class) until the user enters a specific word (such as
+ * quit for example)
+ * 
+ * @author nerisa
+ * 
+ */
 public class ContinuousInput {
 	private static final Logger LOG = Logger.getLogger(ContinuousInput.class.getName());
 
