@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class ContinuousInput {
-	private static Logger log = Logger.getLogger(ContinuousInput.class.getName());
+	private static final Logger log = Logger.getLogger(ContinuousInput.class.getName());
 
 	public static void main(String[] args) {
 		Scanner userInput = new Scanner(System.in);
@@ -14,7 +14,7 @@ public class ContinuousInput {
 		try {
 			do {
 				System.out.println("Enter something(Enter quit to discontinue)");
-				userWord = userInput.next();
+				userWord = userInput.nextLine();
 				if (!userWord.equalsIgnoreCase(QUIT)) {
 					userSentence.append(userWord + " ");
 
