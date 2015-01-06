@@ -4,26 +4,26 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class ContinuousInput {
+	private static Logger LOG = Logger.getLogger(ContinuousInput.class.getName());
 
 	public static void main(String[] args) {
 		Scanner userInput = new Scanner(System.in);
-		Logger LOG = Logger.getLogger(ContinuousInput.class.getName());
 		StringBuilder userSentence = new StringBuilder();
 		String userWord = "";
+		final String QUIT = "quit";
 		try {
 			do {
-				System.out
-						.println("Enter something(Enter quit to discontinue)");
+				System.out.println("Enter something(Enter quit to discontinue)");
 				userWord = userInput.next();
-				if (!userWord.equalsIgnoreCase("quit")) {
+				if (!userWord.equalsIgnoreCase(QUIT)) {
 					userSentence.append(userWord + " ");
 
 				}
-			} while (!userWord.equalsIgnoreCase("quit"));
+			} while (!userWord.equalsIgnoreCase(QUIT));
 		} finally {
 			userInput.close();
 		}
-		LOG.info("User entered " + userSentence);
+		LOG.info("User entered: " + userSentence);
 
 	}
 }
