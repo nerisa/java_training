@@ -32,7 +32,7 @@ public class MyArrayMain {
  */
 class MyArray {
 	private String[] array;
-	private static Logger LOG = Logger.getLogger("arrayLog");
+	private static Logger LOG = Logger.getLogger(MyArray.class.getName());
 
 	public MyArray() {
 
