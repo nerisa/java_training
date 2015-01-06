@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class ContinuousInput {
-	private static final Logger log = Logger.getLogger(ContinuousInput.class.getName());
+	private static final Logger LOG = Logger.getLogger(ContinuousInput.class.getName());
 
 	public static void main(String[] args) {
 		Scanner userInput = new Scanner(System.in);
@@ -23,7 +23,7 @@ public class ContinuousInput {
 		} finally {
 			userInput.close();
 		}
-		log.info("User entered: " + userSentence);
+		LOG.info("User entered: " + userSentence);
 
 	}
 }
