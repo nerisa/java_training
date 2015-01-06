@@ -31,7 +31,7 @@ public class MyArrayMain {
  */
 class MyArray {
 	private String[] array;
-	private static Logger log = Logger.getLogger(MyArray.class.getName());
+	private static final Logger log = Logger.getLogger(MyArray.class.getName());
 
 	public MyArray() {
 
