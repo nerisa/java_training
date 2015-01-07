@@ -1,5 +1,6 @@
 package com.lftechnology.jan5;
 
+import java.util.Arrays;
 import java.util.logging.Logger;
 
 /**
@@ -116,9 +117,9 @@ class MyArray {
 				}
 			}
 			if (numberOfSameElements == array.length) {
-				LOG.info("Arrays have the same elements in order");
+				LOG.info("Arrays identical");
 			} else {
-				LOG.info("Arrays not equal in order");
+				LOG.info("Arrays not identical");
 			}
 		} else {
 			LOG.info("Arrays cannot be compared");
@@ -134,18 +135,17 @@ class MyArray {
 	public void compare(MyArray compareArray) {
 		int numberOfEqualElements = 0;
 		if (array.length == compareArray.getArray().length) {
-			String[] tempArray = compareArray.getArray().clone();
-			for (int i = 0; i < array.length; i++) {
-				for (int j = 0; j < array.length; j++) {
-					if (tempArray[j].equals(array[i])) {
-						tempArray[j] = "";
-						numberOfEqualElements++;
-						break;
-					}
+			String[] firstTempArray = compareArray.getArray().clone();
+			String[] secondTempArray = array.clone();
+			Arrays.sort(firstTempArray);
+			Arrays.sort(secondTempArray);
+			for (int i = 0; i < firstTempArray.length; i++) {
+				if (firstTempArray[i].equalsIgnoreCase(secondTempArray[i])) {
+					numberOfEqualElements++;
 				}
 			}
 			if (numberOfEqualElements == array.length) {
-				LOG.info("Equal arrays irrespective of the order");
+				LOG.info("Equal arrays");
 			} else {
 				LOG.info("Arrays not equal");
 			}
