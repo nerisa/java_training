@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Scanner;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -38,15 +39,15 @@ public class FileUtility {
 		Path file = Paths.get(pathName);
 		try {
 			Files.createFile(file);
-			LOG.info("File created:" + file.toAbsolutePath());
+			LOG.log(Level.INFO, "File created:{0}", file.toAbsolutePath());
 		} catch (FileAlreadyExistsException e) {
-			LOG.severe("File already exists");
+			LOG.log(Level.SEVERE, "{0} file already exists", file.getFileName());
 		} catch (IOException e) {
-			LOG.severe("create file error");
+			LOG.log(Level.SEVERE, "create file error. cause: {0}", e.getCause() + e.getMessage());
 		}
-		LOG.info("Directory?:" + Files.isDirectory(file));
-		LOG.info("Regular file?:" + Files.isRegularFile(file));
-		LOG.info("File name:" + file.getFileName());
+		LOG.log(Level.INFO, "Directory?:{0}", Files.isDirectory(file));
+		LOG.log(Level.INFO, "Regular file?:{0}", Files.isRegularFile(file));
+		LOG.log(Level.INFO, "File name:{0}", file.getFileName());
 	}
 
 	/**
@@ -63,11 +64,9 @@ public class FileUtility {
 		} else {
 			try {
 				Files.createDirectories(directory);
-				LOG.info(directory.getFileName() + " directory created");
-			} catch (FileAlreadyExistsException e) {
-				LOG.severe("A file with " + directory.getFileName() + " already exists");
+				LOG.log(Level.INFO, "{0} directory created", directory.getFileName());
 			} catch (IOException e) {
-				LOG.severe("Directory could not be created");
+				LOG.log(Level.SEVERE, "Directory could not be created. cause:{0}", e.getCause());
 			}
 		}
 
@@ -86,12 +85,14 @@ public class FileUtility {
 		if (Files.exists(oldFile)) {
 			try {
 				Files.move(oldFile, newFile);
-				LOG.info(oldFile.getFileName() + " renamed to " + newFile.getFileName());
+				LOG.log(Level.INFO, "{0} renamed to {1}", new Object[] { oldFile.getFileName(), newFile.getFileName() });
+			} catch (FileAlreadyExistsException e) {
+				LOG.log(Level.SEVERE, "{0} file already exists", newFile.getFileName());
 			} catch (IOException e) {
-				LOG.severe("cannot rename file");
+				LOG.log(Level.SEVERE, "cannot rename file {0}", e.getCause());
 			}
 		} else {
-			LOG.info(oldFile.getFileName() + " does not exist");
+			LOG.log(Level.INFO, "{0} does not exist", oldFile.getFileName());
 		}
 	}
 
@@ -104,9 +105,9 @@ public class FileUtility {
 	public void deleteFile(Path file) {
 		try {
 			Files.deleteIfExists(file);
-			LOG.info(file.getFileName() + " deleted");
+			LOG.log(Level.INFO, "{0} deleted", file.getFileName());
 		} catch (IOException e) {
-			LOG.severe(file.getFileName() + " cannot be deleted");
+			LOG.log(Level.INFO, "{0} cannot be deleted", file.getFileName());
 		}
 	}
 
@@ -129,7 +130,7 @@ public class FileUtility {
 				}
 			}
 		} catch (FileNotFoundException e) {
-			LOG.severe("File does not exist");
+			LOG.log(Level.SEVERE, "File does not exist");
 		} finally {
 			if (s != null) {
 				s.close();
@@ -150,8 +151,8 @@ public class FileUtility {
 		while (firstNumIterator.hasNext() && secondNumIterator.hasNext() && nameIterator.hasNext()) {
 			firstNumber = firstNumIterator.next();
 			secondNumber = secondNumIterator.next();
-			LOG.info("Hi! " + nameIterator.next() + ",the sum of " + firstNumber + " and " + secondNumber + " is "
-					+ (float) (firstNumber + secondNumber));
+			LOG.log(Level.INFO, "Hi! {0}, the sum of {1} and {2} is {3} ", new Object[] { nameIterator.next(), firstNumber, secondNumber,
+					(float) (firstNumber + secondNumber) });
 		}
 	}
 
