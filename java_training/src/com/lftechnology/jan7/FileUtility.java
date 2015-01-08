@@ -148,10 +148,12 @@ public class FileUtility {
 		ListIterator<String> nameIterator = name.listIterator();
 		int firstNumber = 0;
 		float secondNumber = 0;
+		String name;
 		while (firstNumIterator.hasNext() && secondNumIterator.hasNext() && nameIterator.hasNext()) {
 			firstNumber = firstNumIterator.next();
 			secondNumber = secondNumIterator.next();
-			LOG.log(Level.INFO, "Hi! {0}, the sum of {1} and {2} is {3} ", new Object[] { nameIterator.next(), firstNumber, secondNumber,
+			name = nameIterator.next();
+			LOG.log(Level.INFO, "Hi! {0}, the sum of {1} and {2} is {3} ", new Object[] { name, firstNumber, secondNumber,
 					(float) (firstNumber + secondNumber) });
 		}
 	}
