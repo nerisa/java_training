@@ -35,7 +35,7 @@ public class FileUtility {
 	 * @param pathName
 	 *            Name of the file to be created
 	 */
-	public void testAFile(String pathName) {
+	public void createAFile(String pathName) {
 		Path file = Paths.get(pathName);
 		try {
 			Files.createFile(file);
