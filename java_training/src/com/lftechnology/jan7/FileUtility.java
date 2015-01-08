@@ -24,9 +24,9 @@ import java.util.logging.Logger;
 public class FileUtility {
 	private static final Logger LOG = Logger.getLogger(FileUtility.class.getName());
 	private static Scanner fileScanner;
-	private static List<Integer> firstNum = new ArrayList<Integer>();
-	private static List<Float> secondNum = new ArrayList<Float>();
-	private static List<String> name = new ArrayList<String>();
+	private List<Integer> firstNum = new ArrayList<Integer>();
+	private List<Float> secondNum = new ArrayList<Float>();
+	private List<String> name = new ArrayList<String>();
 
 	/**
 	 * Creates a text file and checks whether that file is exists. Using the command exists(), isDirectory(), isFile(), getName() and
