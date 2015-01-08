@@ -15,7 +15,7 @@ public class FileUtilityMain {
 
 	public static void main(String[] args) {
 		FileUtility file = new FileUtility();
-		file.testAFile("/home/nerisa/javatest/abc.txt");
+		file.createAFile("/home/nerisa/javatest/abc.txt");
 		file.makeDirectory("/home/nerisa/javatest/newdir");
 		// rename a file by accepting the file name from command line arguments
 		if (args.length == 2) {
@@ -24,7 +24,6 @@ public class FileUtilityMain {
 		} else {
 			LOGGER.severe("File names missing");
 		}
-
 		file.readFile("/home/nerisa/javatest/in.txt");
 		file.displayData();
 
