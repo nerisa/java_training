@@ -23,7 +23,7 @@ import java.util.logging.Logger;
  */
 public class FileUtility {
 	private static final Logger LOG = Logger.getLogger(FileUtility.class.getName());
-	private static Scanner s;
+	private static Scanner fileScanner;
 	private static List<Integer> firstNum = new ArrayList<Integer>();
 	private static List<Float> secondNum = new ArrayList<Float>();
 	private static List<String> name = new ArrayList<String>();
@@ -119,21 +119,21 @@ public class FileUtility {
 	 */
 	public void readFile(String fileName) {
 		try {
-			s = new Scanner(new BufferedReader(new FileReader(fileName)));
-			while (s.hasNext()) {
-				if (s.hasNextInt()) {
-					firstNum.add(s.nextInt());
-				} else if (s.hasNextFloat()) {
-					secondNum.add(s.nextFloat());
+			fileScanner = new Scanner(new BufferedReader(new FileReader(fileName)));
+			while (fileScanner.hasNext()) {
+				if (fileScanner.hasNextInt()) {
+					firstNum.add(fileScanner.nextInt());
+				} else if (fileScanner.hasNextFloat()) {
+					secondNum.add(fileScanner.nextFloat());
 				} else {
-					name.add(s.next());
+					name.add(fileScanner.next());
 				}
 			}
 		} catch (FileNotFoundException e) {
 			LOG.log(Level.SEVERE, "File does not exist");
 		} finally {
-			if (s != null) {
-				s.close();
+			if (fileScanner != null) {
+				fileScanner.close();
 			}
 		}
 	}
