@@ -108,15 +108,15 @@ public class FileUtility {
 	 * Deletes the given file
 	 * 
 	 * @author nerisa
-	 * @param file
-	 *            file to be deleted
+	 * @param filePath
+	 *            path of the file to be deleted
 	 */
-	public void deleteFile(Path file) {
+	public void deleteFile(Path filePath) {
 		try {
-			Files.deleteIfExists(file);
-			LOG.log(Level.INFO, "{0} deleted", file.getFileName());
+			Files.deleteIfExists(filePath);
+			LOG.log(Level.INFO, "{0} deleted", filePath.getFileName());
 		} catch (IOException e) {
-			LOG.log(Level.INFO, "{0} cannot be deleted", file.getFileName());
+			LOG.log(Level.INFO, "{0} cannot be deleted", filePath.getFileName());
 		} catch (Exception e) {
 			LOG.log(Level.SEVERE, "{0}, cause:{1}", new Object[] { e.getMessage(), e.getCause() });
 		}
