@@ -10,7 +10,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,9 +23,9 @@ import java.util.logging.Logger;
 public class FileUtility {
 	private static final Logger LOG = Logger.getLogger(FileUtility.class.getName());
 	private static Scanner fileScanner;
-	private List<Integer> firstNum = new ArrayList<Integer>();
-	private List<Float> secondNum = new ArrayList<Float>();
-	private List<String> name = new ArrayList<String>();
+	private List<Integer> intNumbers = new ArrayList<Integer>();
+	private List<Float> floatNumbers = new ArrayList<Float>();
+	private List<String> names = new ArrayList<String>();
 
 	/**
 	 * Creates a text file and checks whether that file is exists. Using the command exists(), isDirectory(), isFile(), getName() and
@@ -122,11 +121,11 @@ public class FileUtility {
 			fileScanner = new Scanner(new BufferedReader(new FileReader(fileName)));
 			while (fileScanner.hasNext()) {
 				if (fileScanner.hasNextInt()) {
-					firstNum.add(fileScanner.nextInt());
+					intNumbers.add(fileScanner.nextInt());
 				} else if (fileScanner.hasNextFloat()) {
-					secondNum.add(fileScanner.nextFloat());
+					floatNumbers.add(fileScanner.nextFloat());
 				} else {
-					name.add(fileScanner.next());
+					names.add(fileScanner.next());
 				}
 			}
 		} catch (FileNotFoundException e) {
@@ -139,23 +138,28 @@ public class FileUtility {
 	}
 
 	/**
-	 * Displays the data in the file
+	 * Displays the data in the file and the sum of all the numbers present in the file
 	 * 
 	 */
 	public void displayData() {
-		ListIterator<Integer> firstNumIterator = firstNum.listIterator();
-		ListIterator<Float> secondNumIterator = secondNum.listIterator();
-		ListIterator<String> nameIterator = name.listIterator();
-		int firstNumber = 0;
-		float secondNumber = 0;
-		String name;
-		while (firstNumIterator.hasNext() && secondNumIterator.hasNext() && nameIterator.hasNext()) {
-			firstNumber = firstNumIterator.next();
-			secondNumber = secondNumIterator.next();
-			name = nameIterator.next();
-			LOG.log(Level.INFO, "Hi! {0}, the sum of {1} and {2} is {3} ", new Object[] { name, firstNumber, secondNumber,
-					(float) (firstNumber + secondNumber) });
+		StringBuilder namesInFile = new StringBuilder();
+		StringBuilder intNumsInFile = new StringBuilder();
+		StringBuilder floatNumsInFile = new StringBuilder();
+		float sum = 0;
+		for (int number : intNumbers) {
+			intNumsInFile.append(number + " ");
+			sum += number;
 		}
+		for (float number : floatNumbers) {
+			floatNumsInFile.append(number + " ");
+			sum += number;
+		}
+		for (String name : names) {
+			namesInFile.append(name + " ");
+		}
+		LOG.log(Level.INFO, "The names in the file are: {0}", namesInFile);
+		LOG.log(Level.INFO, "The integers in the file are: {0}", intNumsInFile);
+		LOG.log(Level.INFO, "The floats in the file are: {0}", floatNumsInFile);
+		LOG.log(Level.INFO, "Hi! {0}, the sum of all nos in the file is {1} ", new Object[] { namesInFile, sum });
 	}
-
 }
