@@ -45,6 +45,8 @@ public class FileUtility {
 			LOG.log(Level.SEVERE, "{0} file already exists", file.getFileName());
 		} catch (IOException e) {
 			LOG.log(Level.SEVERE, "create file error. cause: {0}", e.getCause() + e.getMessage());
+		} catch (Exception e) {
+			LOG.log(Level.SEVERE, "{0}, cause:{1}", new Object[] { e.getMessage(), e.getCause() });
 		}
 		LOG.log(Level.INFO, "Directory?:{0}", Files.isDirectory(file));
 		LOG.log(Level.INFO, "Regular file?:{0}", Files.isRegularFile(file));
@@ -69,6 +71,8 @@ public class FileUtility {
 				LOG.log(Level.INFO, "{0} directory created", directory.getFileName());
 			} catch (IOException e) {
 				LOG.log(Level.SEVERE, "Directory could not be created. cause:{0}", e.getCause());
+			} catch (Exception e) {
+				LOG.log(Level.SEVERE, "{0}, cause:{1}", new Object[] { e.getMessage(), e.getCause() });
 			}
 		}
 	}
@@ -92,6 +96,8 @@ public class FileUtility {
 				LOG.log(Level.SEVERE, "{0} file already exists", newFile.getFileName());
 			} catch (IOException e) {
 				LOG.log(Level.SEVERE, "cannot rename file {0}", e.getCause());
+			} catch (Exception e) {
+				LOG.log(Level.SEVERE, "{0}, cause:{1}", new Object[] { e.getMessage(), e.getCause() });
 			}
 		} else {
 			LOG.log(Level.INFO, "{0} does not exist", oldFile.getFileName());
@@ -111,6 +117,8 @@ public class FileUtility {
 			LOG.log(Level.INFO, "{0} deleted", file.getFileName());
 		} catch (IOException e) {
 			LOG.log(Level.INFO, "{0} cannot be deleted", file.getFileName());
+		} catch (Exception e) {
+			LOG.log(Level.SEVERE, "{0}, cause:{1}", new Object[] { e.getMessage(), e.getCause() });
 		}
 	}
 
@@ -135,6 +143,8 @@ public class FileUtility {
 			}
 		} catch (FileNotFoundException e) {
 			LOG.log(Level.SEVERE, "File does not exist");
+		} catch (Exception e) {
+			LOG.log(Level.SEVERE, "{0}, cause:{1}", new Object[] { e.getMessage(), e.getCause() });
 		} finally {
 			if (fileScanner != null) {
 				fileScanner.close();
