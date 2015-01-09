@@ -32,5 +32,4 @@ public class FileUtilityMain {
 		file.readFile(PATH_TO_HOME + PATH_TO_DIRECTORY + FILE_TO_READ);
 		file.displayData();
 	}
-
 }
