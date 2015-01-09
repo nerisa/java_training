@@ -26,7 +26,6 @@ public class FileUtilityMain {
 		}
 		file.readFile("/home/nerisa/javatest/in.txt");
 		file.displayData();
-
 	}
 
 }
