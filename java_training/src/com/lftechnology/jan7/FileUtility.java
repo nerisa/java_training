@@ -142,24 +142,28 @@ public class FileUtility {
 	 * 
 	 */
 	public void displayData() {
-		StringBuilder namesInFile = new StringBuilder();
-		StringBuilder intNumsInFile = new StringBuilder();
-		StringBuilder floatNumsInFile = new StringBuilder();
-		float sum = 0;
-		for (int number : intNumbers) {
-			intNumsInFile.append(number + " ");
-			sum += number;
+		if (names.isEmpty() && intNumbers.isEmpty() && floatNumbers.isEmpty()) {
+			LOG.log(Level.INFO, "The file is empty");
+		} else {
+			StringBuilder namesInFile = new StringBuilder();
+			StringBuilder intNumsInFile = new StringBuilder();
+			StringBuilder floatNumsInFile = new StringBuilder();
+			float sum = 0;
+			for (int number : intNumbers) {
+				intNumsInFile.append(number + " ");
+				sum += number;
+			}
+			for (float number : floatNumbers) {
+				floatNumsInFile.append(number + " ");
+				sum += number;
+			}
+			for (String name : names) {
+				namesInFile.append(name + " ");
+			}
+			LOG.log(Level.INFO, "The names in the file are: {0}", namesInFile);
+			LOG.log(Level.INFO, "The integers in the file are: {0}", intNumsInFile);
+			LOG.log(Level.INFO, "The floats in the file are: {0}", floatNumsInFile);
+			LOG.log(Level.INFO, "Hi! {0}, the sum of all nos in the file is {1} ", new Object[] { namesInFile, sum });
 		}
-		for (float number : floatNumbers) {
-			floatNumsInFile.append(number + " ");
-			sum += number;
-		}
-		for (String name : names) {
-			namesInFile.append(name + " ");
-		}
-		LOG.log(Level.INFO, "The names in the file are: {0}", namesInFile);
-		LOG.log(Level.INFO, "The integers in the file are: {0}", intNumsInFile);
-		LOG.log(Level.INFO, "The floats in the file are: {0}", floatNumsInFile);
-		LOG.log(Level.INFO, "Hi! {0}, the sum of all nos in the file is {1} ", new Object[] { namesInFile, sum });
 	}
 }
