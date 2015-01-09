@@ -31,6 +31,8 @@ public class FileUtility {
 	 * Creates a text file and checks whether that file is exists. Using the command exists(), isDirectory(), isFile(), getName() and
 	 * getAbsolutePath().
 	 * 
+	 * @author nerisa
+	 * 
 	 * @param pathName
 	 *            Name of the file to be created
 	 */
@@ -52,6 +54,7 @@ public class FileUtility {
 	/**
 	 * Creates a directory and checks whether the directory is created.
 	 * 
+	 * @author nerisa
 	 * @param pathName
 	 *            name of the directory to be created
 	 * 
@@ -68,12 +71,12 @@ public class FileUtility {
 				LOG.log(Level.SEVERE, "Directory could not be created. cause:{0}", e.getCause());
 			}
 		}
-
 	}
 
 	/**
 	 * Renames the given file
 	 * 
+	 * @author nerisa
 	 * @param oldFile
 	 *            file to be renamed
 	 * @param newName
@@ -98,6 +101,7 @@ public class FileUtility {
 	/**
 	 * Deletes the given file
 	 * 
+	 * @author nerisa
 	 * @param file
 	 *            file to be deleted
 	 */
@@ -113,6 +117,7 @@ public class FileUtility {
 	/**
 	 * Reads a file with integer,string and float data
 	 * 
+	 * @author nerisa
 	 * @param fileName
 	 *            file to be read
 	 */
@@ -138,8 +143,10 @@ public class FileUtility {
 	}
 
 	/**
+	 * 
 	 * Displays the data in the file and the sum of all the numbers present in the file
 	 * 
+	 * @author nerisa
 	 */
 	public void displayData() {
 		if (names.isEmpty() && intNumbers.isEmpty() && floatNumbers.isEmpty()) {
