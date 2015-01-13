@@ -35,7 +35,6 @@ public class LinkedListMain {
 		one.removeElements(two);
 		one.displayList();
 	}
-
 }
 
 /**
