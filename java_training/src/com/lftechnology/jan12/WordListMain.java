@@ -26,7 +26,7 @@ public class WordListMain {
 		for (String word : wordList.findDuplicates(words)) {
 			dupsList.append(word + " ");
 		}
-		for (String word : wordList.findUniqes(words)) {
+		for (String word : wordList.findUniques(words)) {
 			uniqueList.append(word + " ");
 		}
 		LOG.log(Level.INFO, "The list with duplicates removed is {0}", noDupsList);
@@ -38,7 +38,5 @@ public class WordListMain {
 		LOG.log(Level.INFO, "Original List:");
 		wordList.displayList(words);
 		wordList.shuffleAndDisplay(words);
-
 	}
-
 }
