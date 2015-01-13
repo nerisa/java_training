@@ -11,7 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * This class makes use of the Collection API and has methods to 
+ * This class makes use of the Collection API and has methods to
  * <ul>
  * <li>find the duplicates in a word list</li>
  * <li>find the unique words in a word list</li>
@@ -60,7 +60,7 @@ public class WordListManipulator {
 	 *            {@link List} of words from where the unique words are to be found
 	 * @return {@link List} of unique words
 	 */
-	public Set<String> findUniqes(List<String> listOfWords) {
+	public Set<String> findUniques(List<String> listOfWords) {
 		Set<String> noDuplicates = removeDuplicates(listOfWords);
 		noDuplicates.removeAll(findDuplicates(listOfWords));
 		return (noDuplicates);
@@ -68,8 +68,10 @@ public class WordListManipulator {
 
 	/**
 	 * Finds the number of times the duplicate words is repeated.
+	 * 
 	 * @author nerisa
-	 * @param listOfWords {@link List} of words form where the duplicates are to be found
+	 * @param listOfWords
+	 *            {@link List} of words form where the duplicates are to be found
 	 * @return returns the duplicates with its repetition count in the form of {@link Map}
 	 */
 	public Map<String, Integer> findRepetitionCount(List<String> listOfWords) {
@@ -81,6 +83,13 @@ public class WordListManipulator {
 		return duplicates;
 	}
 
+	/**
+	 * Displays the duplicates with its repetition count
+	 * 
+	 * @author nerisa
+	 * @param map
+	 *            {@link Map} that contains the duplicates with its repetition count
+	 */
 	public void displayRepetitionCount(Map<String, Integer> map) {
 		Map<String, Integer> reversedMap = new TreeMap<String, Integer>(map);
 		for (Map.Entry<String, Integer> entry : map.entrySet()) {
@@ -92,6 +101,12 @@ public class WordListManipulator {
 		}
 	}
 
+	/**
+	 * Shuffles the list of words and displays it
+	 * 
+	 * @author nerisa
+	 * @param listOfWords
+	 */
 	public void shuffleAndDisplay(List<String> listOfWords) {
 		Collections.shuffle(listOfWords);
 		StringBuilder shuffledList = new StringBuilder();
@@ -101,12 +116,17 @@ public class WordListManipulator {
 		LOG.log(Level.INFO, "Shuffled list:{0}", shuffledList);
 	}
 
+	/**
+	 * Displays the list of words
+	 * 
+	 * @author nerisa
+	 * @param listOfWords
+	 */
 	public void displayList(List<String> listOfWords) {
 		StringBuilder unshuffledList = new StringBuilder();
 		for (String word : listOfWords) {
 			unshuffledList.append(word + " ");
 		}
 		LOG.log(Level.INFO, "{0}", unshuffledList);
-
 	}
 }
