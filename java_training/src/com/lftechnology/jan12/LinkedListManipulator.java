@@ -6,17 +6,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * This class has methods to
+ * This class has a {@link LinkedList} variable and has methods to
  * <ol>
- * <li>Create a linked list named one and two.</li>
- * <li>Add some elements to both one (one, two, three, four, five) and two (six, seven, eight, nine, and ten).</li>
- * <li>Merge the words from two into one.</li>
- * <li>Remove every second word from two.</li>
- * <li>Remove all words in two from one.</li>
+ * <li>Add elements to the list</li>
+ * <li>Merge the words from one instance to another instance.</li>
+ * <li>Remove every second word from the instance variable</li>
+ * <li>Remove all words present in another instance.</li>
+ * <li>Print the instance variable.</li>
  * </ol>
- * li>Print the value after each operation.</li>
  * 
- * @author nerisa
+ * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
  * 
  */
 
@@ -27,9 +26,9 @@ class LinkedListManipulator {
 	/**
 	 * This method adds elements to the instance variable
 	 * 
-	 * @author nerisa
+	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 * @param elements
-	 *            to be added
+	 *            array of {@link String} elements to be added
 	 */
 	public void addElements(String[] elements) {
 		for (String word : elements) {
@@ -38,7 +37,7 @@ class LinkedListManipulator {
 	}
 
 	/**
-	 * @author nerisa
+	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 * @return the instance variable list
 	 */
 	public List<String> getList() {
@@ -46,11 +45,12 @@ class LinkedListManipulator {
 	}
 
 	/**
-	 * This method appends the values of the instance variable of the passed instance of the class to the instance variable of the calling
-	 * instance
+	 * This method appends the values of the instance variable of the passed object of the class to the instance variable of the calling
+	 * object
 	 * 
-	 * @author nerisa
+	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 * @param anotherInstance
+	 *            an instance of {@link LinkedListManipulator} whose variable is to be merged
 	 */
 	public void mergeLists(LinkedListManipulator anotherInstance) {
 		this.list.addAll(anotherInstance.getList());
@@ -60,21 +60,19 @@ class LinkedListManipulator {
 	 * This method removes every second element of the instance variable. For e.g. for the list ['one','two','three','four'], the result
 	 * will be ['one','three']
 	 * 
-	 * @author nerisa
+	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 */
 	public void removeSecondElements() {
-		List<String> tempList = new LinkedList<String>();
-		for (int i = 1; i < list.size(); i = i + 2) {
-			tempList.add(list.get(i));
+		for (int i = 1; i < list.size(); i++) {
+			this.list.remove(i);
 		}
-		list.removeAll(tempList);
 	}
 
 	/**
 	 * This method removes the elements present in the instance variable of the passed instance of the class from the instance variable of
 	 * the calling instance
 	 * 
-	 * @author nerisa
+	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 * @param anotherInstance
 	 */
 	public void removeElements(LinkedListManipulator anotherInstance) {
@@ -84,7 +82,7 @@ class LinkedListManipulator {
 	/**
 	 * This method displays the instance variable
 	 * 
-	 * @author nerisa
+	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 */
 	public void displayList() {
 		StringBuilder listOfWords = new StringBuilder();
