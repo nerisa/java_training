@@ -26,6 +26,8 @@ public class WordListManipulator {
 	private static final Logger LOG = Logger.getLogger(WordListManipulator.class.getName());
 
 	/**
+	 * This method removes any repeating words from a list of words.
+	 * 
 	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 * @param listOfWords
 	 *            {@link List} of words from where the duplicates are to be removed
@@ -36,6 +38,8 @@ public class WordListManipulator {
 	}
 
 	/**
+	 * This method finds the repeating words in a list of words.
+	 * 
 	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 * @param listOfWords
 	 *            {@link List} of words from where the duplicates are to be found
@@ -54,6 +58,8 @@ public class WordListManipulator {
 	}
 
 	/**
+	 * This method finds the non-repeating words from a list of words.
+	 * 
 	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 * @param listOfWords
 	 *            {@link List} of words from where the unique words are to be found
@@ -62,11 +68,11 @@ public class WordListManipulator {
 	public Set<String> findUniques(List<String> listOfWords) {
 		Set<String> noDuplicates = removeDuplicates(listOfWords);
 		noDuplicates.removeAll(findDuplicates(listOfWords));
-		return (noDuplicates);
+		return noDuplicates;
 	}
 
 	/**
-	 * Finds the number of times the duplicate words is repeated.
+	 * This method finds the number of times the duplicate words is repeated.
 	 * 
 	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 * @param listOfWords
@@ -83,7 +89,7 @@ public class WordListManipulator {
 	}
 
 	/**
-	 * Displays the duplicates with its repetition count
+	 * This method displays the duplicates with its repetition count
 	 * 
 	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 * @param map
@@ -96,10 +102,11 @@ public class WordListManipulator {
 	}
 
 	/**
-	 * Shuffles the list of words and displays it
+	 * This method shuffles the list of words and displays it
 	 * 
 	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 * @param listOfWords
+	 *            {@link List} of words to be shuffled
 	 */
 	public void shuffleAndDisplay(List<String> listOfWords) {
 		Collections.shuffle(listOfWords);
@@ -115,6 +122,7 @@ public class WordListManipulator {
 	 * 
 	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 * @param listOfWords
+	 *            {@link List} of words to be displayed
 	 */
 	public void displayList(List<String> listOfWords) {
 		StringBuilder unshuffledList = new StringBuilder();
