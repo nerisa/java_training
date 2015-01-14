@@ -6,12 +6,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * This class makes use of the Collection API and has methods to
+ * This class makes use of the Collections API and has methods to
  * <ul>
  * <li>find the duplicates in a word list</li>
  * <li>find the unique words in a word list</li>
@@ -20,14 +19,14 @@ import java.util.logging.Logger;
  * <li>to makes use of the Shuffle algorithm</li>
  * </ul>
  * 
- * @author nerisa
+ * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
  * 
  */
 public class WordListManipulator {
 	private static final Logger LOG = Logger.getLogger(WordListManipulator.class.getName());
 
 	/**
-	 * @author nerisa
+	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 * @param listOfWords
 	 *            {@link List} of words from where the duplicates are to be removed
 	 * @return {@link List} of words with duplicates removed
@@ -37,7 +36,7 @@ public class WordListManipulator {
 	}
 
 	/**
-	 * @author nerisa
+	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 * @param listOfWords
 	 *            {@link List} of words from where the duplicates are to be found
 	 * @return {@link List} of duplicates words
@@ -55,7 +54,7 @@ public class WordListManipulator {
 	}
 
 	/**
-	 * @author nerisa
+	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 * @param listOfWords
 	 *            {@link List} of words from where the unique words are to be found
 	 * @return {@link List} of unique words
@@ -69,7 +68,7 @@ public class WordListManipulator {
 	/**
 	 * Finds the number of times the duplicate words is repeated.
 	 * 
-	 * @author nerisa
+	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 * @param listOfWords
 	 *            {@link List} of words form where the duplicates are to be found
 	 * @return returns the duplicates with its repetition count in the form of {@link Map}
@@ -86,17 +85,12 @@ public class WordListManipulator {
 	/**
 	 * Displays the duplicates with its repetition count
 	 * 
-	 * @author nerisa
+	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 * @param map
 	 *            {@link Map} that contains the duplicates with its repetition count
 	 */
 	public void displayRepetitionCount(Map<String, Integer> map) {
-		Map<String, Integer> reversedMap = new TreeMap<String, Integer>(map);
 		for (Map.Entry<String, Integer> entry : map.entrySet()) {
-			reversedMap.put(entry.getKey(), entry.getValue());
-		}
-
-		for (Map.Entry<String, Integer> entry : reversedMap.entrySet()) {
 			LOG.log(Level.INFO, "{0}:{1}", new Object[] { entry.getKey(), entry.getValue() });
 		}
 	}
@@ -104,7 +98,7 @@ public class WordListManipulator {
 	/**
 	 * Shuffles the list of words and displays it
 	 * 
-	 * @author nerisa
+	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 * @param listOfWords
 	 */
 	public void shuffleAndDisplay(List<String> listOfWords) {
@@ -119,7 +113,7 @@ public class WordListManipulator {
 	/**
 	 * Displays the list of words
 	 * 
-	 * @author nerisa
+	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 * @param listOfWords
 	 */
 	public void displayList(List<String> listOfWords) {
