@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 public class ArrayListManipulator {
 	private static List<Integer> list = new ArrayList<Integer>();
 	private static final Logger LOG = Logger.getLogger(ArrayListManipulator.class.getName());
+	private final static int CHILD_LIST_SIZE = 6;
 
 	public static void main(String[] args) {
 		for (int i = 1; i < 50; i++) {
@@ -25,7 +26,7 @@ public class ArrayListManipulator {
 		LOG.log(Level.INFO, "Main list:{0}", list);
 		Collections.shuffle(list);
 		LOG.log(Level.INFO, "Shuffled list{0}:", list);
-		List<Integer> childList = list.subList(0, 6);
+		List<Integer> childList = list.subList(0, CHILD_LIST_SIZE);
 		LOG.log(Level.INFO, "Extracted list:{0}", childList);
 		Collections.sort(childList);
 		LOG.log(Level.INFO, "Sorted child list:{0}", childList);
