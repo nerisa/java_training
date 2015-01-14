@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 /**
  * This class explores the functionalities of {@link WordListManipulator}
  * 
- * @author nerisa
+ * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
  * 
  */
 public class WordListMain {
@@ -17,20 +17,20 @@ public class WordListMain {
 	public static void main(String[] args) {
 		WordListManipulator wordList = new WordListManipulator();
 		List<String> words = Arrays.asList(args);
-		StringBuilder noDupsList = new StringBuilder();
-		StringBuilder dupsList = new StringBuilder();
+		StringBuilder noDuplicatesList = new StringBuilder();
+		StringBuilder duplicateList = new StringBuilder();
 		StringBuilder uniqueList = new StringBuilder();
 		for (String word : wordList.removeDuplicates(words)) {
-			noDupsList.append(word + " ");
+			noDuplicatesList.append(word + " ");
 		}
 		for (String word : wordList.findDuplicates(words)) {
-			dupsList.append(word + " ");
+			duplicateList.append(word + " ");
 		}
 		for (String word : wordList.findUniques(words)) {
 			uniqueList.append(word + " ");
 		}
-		LOG.log(Level.INFO, "The list with duplicates removed is {0}", noDupsList);
-		LOG.log(Level.INFO, "The duplicate words are {0}", dupsList);
+		LOG.log(Level.INFO, "The list with duplicates removed is {0}", noDuplicatesList);
+		LOG.log(Level.INFO, "The duplicate words are {0}", duplicateList);
 		LOG.log(Level.INFO, "The unique words are {0}", uniqueList);
 		LOG.log(Level.INFO, "The repetition count for the duplicate words are:");
 		wordList.displayRepetitionCount(wordList.findRepetitionCount(words));
