@@ -32,7 +32,7 @@ class LinkedListManipulator {
 	 */
 	public void addElements(String[] elements) {
 		for (String word : elements) {
-			list.add(word);
+			this.list.add(word);
 		}
 	}
 
@@ -41,7 +41,7 @@ class LinkedListManipulator {
 	 * @return the instance variable list
 	 */
 	public List<String> getList() {
-		return list;
+		return this.list;
 	}
 
 	/**
@@ -63,7 +63,7 @@ class LinkedListManipulator {
 	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 */
 	public void removeSecondElements() {
-		for (int i = 1; i < list.size(); i++) {
+		for (int i = 1; i < this.list.size(); i++) {
 			this.list.remove(i);
 		}
 	}
@@ -85,10 +85,6 @@ class LinkedListManipulator {
 	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 */
 	public void displayList() {
-		StringBuilder listOfWords = new StringBuilder();
-		for (String word : list) {
-			listOfWords.append(word + " ");
-		}
-		LOG.log(Level.INFO, "{0}", listOfWords);
+		LOG.log(Level.INFO, "{0}", this.list);
 	}
 }

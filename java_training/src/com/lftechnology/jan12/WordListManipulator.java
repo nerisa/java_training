@@ -31,7 +31,7 @@ public class WordListManipulator {
 	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 * @param listOfWords
 	 *            {@link List} of words from where the duplicates are to be removed
-	 * @return {@link List} of words with duplicates removed
+	 * @return {@link Set} of words with duplicates removed
 	 */
 	public Set<String> removeDuplicates(List<String> listOfWords) {
 		return (new HashSet<String>(listOfWords));
@@ -43,7 +43,7 @@ public class WordListManipulator {
 	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 * @param listOfWords
 	 *            {@link List} of words from where the duplicates are to be found
-	 * @return {@link List} of duplicates words
+	 * @return {@link Set} of duplicates words
 	 */
 	public Set<String> findDuplicates(List<String> listOfWords) {
 		Set<String> noDuplicates = removeDuplicates(listOfWords);
@@ -63,7 +63,7 @@ public class WordListManipulator {
 	 * @author Nerisa Chitrakar nerisachitrakar@lftechnology.com
 	 * @param listOfWords
 	 *            {@link List} of words from where the unique words are to be found
-	 * @return {@link List} of unique words
+	 * @return {@link Set} of unique words
 	 */
 	public Set<String> findUniques(List<String> listOfWords) {
 		Set<String> noDuplicates = removeDuplicates(listOfWords);
@@ -110,11 +110,7 @@ public class WordListManipulator {
 	 */
 	public void shuffleAndDisplay(List<String> listOfWords) {
 		Collections.shuffle(listOfWords);
-		StringBuilder shuffledList = new StringBuilder();
-		for (String word : listOfWords) {
-			shuffledList.append(word + " ");
-		}
-		LOG.log(Level.INFO, "Shuffled list:{0}", shuffledList);
+		LOG.log(Level.INFO, "Shuffled list:{0}", listOfWords);
 	}
 
 	/**
