@@ -1,0 +1,76 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+CREATE SCHEMA IF NOT EXISTS `employee_management` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `employee_management` ;
+
+-- -----------------------------------------------------
+-- Table `employee_management`.`department`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `employee_management`.`department` (
+  `dept_id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`dept_id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `employee_management`.`designation`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `employee_management`.`designation` (
+  `id` INT NOT NULL,
+  `title` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `employee_management`.`employee`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `employee_management`.`employee` (
+  `emp_id` BIGINT NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `middle_name` VARCHAR(45) NULL,
+  `last_name` VARCHAR(45) NULL,
+  `department` INT NULL,
+  `email` VARCHAR(45) NULL,
+  `designation` INT NULL,
+  `status` ENUM('TRAINEE','PROBATION','PERMANENT','TERMINATED') NULL,
+  INDEX `fk_Employee_designation_idx` (`designation` ASC),
+  PRIMARY KEY (`emp_id`),
+  INDEX `fk_Employee_dept_idx` (`department` ASC),
+  CONSTRAINT `fk_employee_designation_designation`
+    FOREIGN KEY (`designation`)
+    REFERENCES `employee_management`.`designation` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_employee_department_department`
+    FOREIGN KEY (`department`)
+    REFERENCES `employee_management`.`department` (`dept_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `employee_management`.`salary`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `employee_management`.`salary` (
+  `emp_id` BIGINT NOT NULL,
+  `basic_salary` DOUBLE NULL,
+  `internet_incentive` DOUBLE NULL,
+  `laptop_incentive` DOUBLE NULL,
+  `bonus` DOUBLE NULL,
+  PRIMARY KEY (`emp_id`),
+  CONSTRAINT `fk_salary_employee_emp_id`
+    FOREIGN KEY (`emp_id`)
+    REFERENCES `employee_management`.`employee` (`emp_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
