@@ -1,0 +1,84 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+CREATE SCHEMA IF NOT EXISTS `try1` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `try1` ;
+
+-- -----------------------------------------------------
+-- Table `try1`.`Designation`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `try1`.`Designation` (
+  `ID` INT NOT NULL,
+  `Post` VARCHAR(45) NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `try1`.`Employee`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `try1`.`Employee` (
+  `Employee_ID` BIGINT NOT NULL AUTO_INCREMENT,
+  `First_name` VARCHAR(45) NOT NULL,
+  `Middle_name` VARCHAR(45) NULL,
+  `Last_name` VARCHAR(45) NULL,
+  `Department` INT NULL,
+  `Email` VARCHAR(45) NULL,
+  `Designation` INT NULL,
+  `Status` ENUM('Trainee','Probation','Permanent','Terminated') NULL,
+  INDEX `fk_Employee_designation_idx` (`Designation` ASC),
+  PRIMARY KEY (`Employee_ID`),
+  INDEX `fk_Employee_dept_idx` (`Department` ASC),
+  CONSTRAINT `fk_Employee_designation`
+    FOREIGN KEY (`Designation`)
+    REFERENCES `try1`.`Designation` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Employee_dept`
+    FOREIGN KEY (`Department`)
+    REFERENCES `try1`.`Department` (`Department_ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `try1`.`Department`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `try1`.`Department` (
+  `Department_ID` INT NOT NULL AUTO_INCREMENT,
+  `Name` VARCHAR(45) NOT NULL,
+  `HOD` BIGINT NOT NULL,
+  PRIMARY KEY (`Department_ID`, `HOD`),
+  INDEX `fk_Department_Employee1_idx` (`HOD` ASC),
+  CONSTRAINT `fk_Department_Employee1`
+    FOREIGN KEY (`HOD`)
+    REFERENCES `try1`.`Employee` (`Employee_ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+COMMENT = 'CREATE TABLE IF NOT EXISTS `try1`.`Department` (\n  `Department_ID` INT NOT NULL AUTO_INCREMENT,\n  `Name` VARCHAR(45) NOT NULL,\n  `HOD` BIGINT NOT NULL,\n  PRIMARY KEY (`Department_ID`, `HOD`),\n  INDEX `fk_Department_Employee1_idx` (`HOD` ASC),\n  CONSTRAINT `fk_Department_Employee1`\n    FOREIGN KEY (`HOD`)\n    REFERENCES `try1`.`Employee` (`Employee_ID`)\n    ON DELETE NO ACTION\n    ON UPDATE NO ACTION)\nENGINE = InnoDB';
+
+
+-- -----------------------------------------------------
+-- Table `try1`.`Salary`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `try1`.`Salary` (
+  `ID` BIGINT NOT NULL,
+  `Basic_salary` DOUBLE NULL,
+  `Internet_incentive` DOUBLE NULL,
+  `Laptop_incentive` DOUBLE NULL,
+  `Bonus` DOUBLE NULL,
+  PRIMARY KEY (`ID`),
+  CONSTRAINT `fk_Salary_emp`
+    FOREIGN KEY (`ID`)
+    REFERENCES `try1`.`Employee` (`Employee_ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
